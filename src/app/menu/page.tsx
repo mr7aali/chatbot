@@ -2,6 +2,7 @@
 import Loader from "@/components/common/Loader";
 import CategoryTag from "@/components/features/categories/CategoryTag";
 import MenuItemCard from "@/components/features/menuItems/MenuItemCard";
+import { Axios } from "@/components/hooks/useAxios";
 import SectionHeader from "@/components/layout/SectionHeader";
 import Category from "@/types/Category";
 import MenuItem from "@/types/MenuItem";
@@ -21,20 +22,18 @@ const MenuPage = () => {
   const filteredCategories = categories?.filter((category) =>
     category.name.includes(tag)
   );
-console.log(filteredCategories);
+
+  
   useEffect(() => {
-    fetch("http://localhost:5000/food-categories/get-all")
-      .then((res) => res.json())
-      .then((data: ICategoriResponseData) => {
+    Axios.get("food-categories/get-all").then(
+      ({ data }: { data: ICategoriResponseData }) => {
         setCategories(data.data), setTag(data.data[0].name);
-      });
-      ///api/menu-items  
-    fetch("http://localhost:5000/food-item/get-all")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenuItems(data?.data);
-        
-      });
+      }
+    );
+
+    Axios.get("food-item/get-all").then(({ data }) => {
+      setMenuItems(data?.data);
+    });
     setLoading(false);
   }, []);
 
