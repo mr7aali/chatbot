@@ -1,13 +1,11 @@
-'use client'
-import { ICartContext } from '@/types/CartContext'
-import { ICartProduct } from '@/types/CartProduct'
-// import CartProduct from '@/types/CartProduct'
-// import CartContext from '@/types/CartContext'
-import MenuItem from '@/types/MenuItem'
-import MenuItemAddOn from '@/types/MenuItemAddOn'
-import { SessionProvider } from "next-auth/react"
-import { createContext, useEffect, useState } from 'react'
-import toast from 'react-hot-toast'
+"use client";
+import { ICartContext } from "@/types/CartContext";
+import { ICartProduct } from "@/types/CartProduct";
+import MenuItem from "@/types/MenuItem";
+import MenuItemAddOn from "@/types/MenuItemAddOn";
+import { SessionProvider } from "next-auth/react";
+import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export const CartContext = createContext<ICartContext>({} as ICartContext);
 
@@ -24,23 +22,34 @@ export function calCartProductPrice(product: ICartProduct): number {
   return price;
 }
 
-export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const AppContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [cartProducts, setCartProducts] = useState<ICartProduct[]>([]);
-  const ls = typeof window !== 'undefined' ? window.localStorage : null;
+  const ls = typeof window !== "undefined" ? window.localStorage : null;
 
   useEffect(() => {
-    if (ls && ls.getItem('cart')) {
-      setCartProducts(JSON.parse(ls.getItem('cart')!));
+    if (ls && ls.getItem("cart")) {
+      setCartProducts(JSON.parse(ls.getItem("cart")!));
     }
-  }, [ls])
+  }, [ls]);
 
-  function addToCart(menuItem: MenuItem, selectedSize: MenuItemAddOn | null, selectedExtras: MenuItemAddOn[]) {
-    setCartProducts(prevProducts => {
-      const newProducts = [...prevProducts, { menuItem, selectedSize, selectedExtras }];
+  function addToCart(
+    menuItem: MenuItem,
+    selectedSize: MenuItemAddOn | null,
+    selectedExtras: MenuItemAddOn[]
+  ) {
+    setCartProducts((prevProducts) => {
+      const newProducts = [
+        ...prevProducts,
+        { menuItem, selectedSize, selectedExtras },
+      ];
       saveCartProductsToLocalStorage(newProducts);
       return newProducts;
     });
-    toast.success('Added to cart');
+    toast.success("Added to cart");
   }
 
   function clearCart() {
@@ -49,25 +58,35 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
   }
 
   function removeCartProduct(indexToRemove: number) {
-    setCartProducts(prevProducts => {
-      const newProducts = prevProducts.filter((v, index) => index !== indexToRemove);
+    setCartProducts((prevProducts) => {
+      const newProducts = prevProducts.filter(
+        (v, index) => index !== indexToRemove
+      );
       saveCartProductsToLocalStorage(newProducts);
       return newProducts;
-    })
-    toast.success('Product removed from cart');
+    });
+    toast.success("Product removed from cart");
   }
 
   function saveCartProductsToLocalStorage(cartProducts: ICartProduct[]) {
     if (ls) {
-      ls.setItem('cart', JSON.stringify(cartProducts));
+      ls.setItem("cart", JSON.stringify(cartProducts));
     }
   }
 
   return (
     <SessionProvider>
-      <CartContext.Provider value={{ cartProducts, setCartProducts, addToCart, clearCart, removeCartProduct }}>
+      <CartContext.Provider
+        value={{
+          cartProducts,
+          setCartProducts,
+          addToCart,
+          clearCart,
+          removeCartProduct,
+        }}
+      >
         {children}
       </CartContext.Provider>
     </SessionProvider>
-  )
-}
+  );
+};

@@ -6,7 +6,6 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import EmailInput from "@/components/common/form/EmailInput";
 import PasswordInput from "@/components/common/form/PasswordInput";
-import { Axios } from "@/components/hooks/useAxios";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -17,10 +16,15 @@ const LoginPage = () => {
 
   async function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data ={email: "123@gmail.com",
-  password: "123",}
-     const res= await Axios.post("usersd/login",data) 
-     console.log(res.data)
+    setLoginInProgress(true);
+    setError('');
+    const response = await signIn('credentials', { email, password, redirect: false });
+    if (response?.ok) {
+      router.push('/')
+    } else {
+      setError("The email or password you entered is incorrect.");
+    }
+    setLoginInProgress(false);
   }
 
   return (

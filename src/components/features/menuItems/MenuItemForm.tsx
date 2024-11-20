@@ -53,10 +53,7 @@ const MenuItemForm = ({ menuItem, buttonText, onSubmit, onDelete }: MenuItemForm
           <ImageUploader setImageLink={setImage}/>
         </label>
       </div>
-      <form className='col-span-2' onSubmit={(e) => onSubmit(e, {
-        image, name, description, category, basePrice, sizes, extraIngredientsPrices,
-        FoodCatagory: ""
-      })}>
+      <form className='col-span-2' onSubmit={(e) => onSubmit(e, { image, name, description, category, basePrice, sizes, extraIngredientsPrices })}>
         <label> Item Name </label>
         <input type="text" placeholder='Item name' value={name ?? ''} onChange={e => setName(e.target.value)} className="input" />
         <label> Description</label>

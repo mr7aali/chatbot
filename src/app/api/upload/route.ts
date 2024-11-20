@@ -8,6 +8,7 @@ cloudinary.v2.config({
   secure: true
 });
 
+
 export async function POST(req: NextRequest) {
 
   const data = await req.formData();

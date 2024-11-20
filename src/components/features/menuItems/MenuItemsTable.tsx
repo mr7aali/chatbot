@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ModalContainer from "../../common/ModalContainer";
 import Category from "@/types/Category";
+import Image from "next/image";
 
 interface MenuItemsTableProps {
   menuItems: MenuItem[];
@@ -44,7 +45,8 @@ const MenuItemsTable = ({ menuItems, onDelete }: MenuItemsTableProps) => {
           {menuItems.map((menuItem) => (
             <TableRow key={menuItem._id}>
               <TableCell>
-                <Avatar src={menuItem.image} radius="md" className="w-20 h-auto" />
+                <Avatar src={menuItem.image} radius="md" className="w-24 h-16" />
+               {/* <Image src={menuItem.image} alt=""/> */}
               </TableCell>
               <TableCell>{menuItem.name}</TableCell>
               <TableCell><p className="line-clamp-3">{menuItem.description}</p></TableCell>

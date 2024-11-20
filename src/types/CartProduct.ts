@@ -7,3 +7,5 @@ export type ICartProduct = {
   selectedSize: MenuItemAddOn | null,
   selectedExtras: MenuItemAddOn[]
 }
+
+// export default CartProduct;

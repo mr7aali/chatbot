@@ -33,7 +33,7 @@ const CategoriesTable = ({ onEdit, onDelete, categories }: CategoriesTableProps)
           {categories.map((category) => (
             <TableRow key={category._id}>
               <TableCell>
-                <Avatar src={category.image} radius="md" className="bg-transparent w-[140px] h-auto" />
+                <Avatar src={category.image} radius="md" className="bg-transparent w-60 h-36" />
               </TableCell>
               <TableCell>{category.name}</TableCell>
               <TableCell>

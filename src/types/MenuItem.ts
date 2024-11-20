@@ -7,10 +7,14 @@ type MenuItem = {
   description: string;
   category: string;
   basePrice: string | number;
-  
   sizes: MenuItemAddOn[];
   extraIngredientsPrices: MenuItemAddOn[];
-  FoodCatagory:string;
 }
 
 export default MenuItem;
+
+// type MenuItemAddOn = {
+//   _id?: string;
+//   name: string;
+//   price: string | number;
+// }
