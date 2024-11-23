@@ -6,9 +6,9 @@ const ChatBotTextArea = ({
   setUserMessage,
   setMessages,
   handleSendMessage,
-  openChatBot
+  openChatBot,
 }: {
-  openChatBot:boolean;
+  openChatBot: boolean;
   userMessage: string;
   setMessages: React.Dispatch<React.SetStateAction<IChatBotMessage[]>>;
   setUserMessage: React.Dispatch<React.SetStateAction<string>>;
@@ -26,6 +26,7 @@ const ChatBotTextArea = ({
         className="bg-white w-9/12  h-[60px] overflow-hidden py-2 text-black  placeholder:text-black  outline-none"
         name=""
         placeholder="Type your message..."
+        value={userMessage}
         onChange={(e) => setUserMessage(e.target.value)}
         id=""
         rows={1}

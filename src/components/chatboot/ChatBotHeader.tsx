@@ -12,8 +12,8 @@ const ChatBotHeader = ({
 }) => {
   return (
     <div
-      onClick={() => setChatBot(true)}
-      className="flex items-center px-4 py-3 shadow-inner rounded-2xl "
+      onClick={() => setChatBot((pre) => !pre)}
+      className="flex items-center px-4 py-3 shadow-inner rounded-2xl cursor-pointer"
     >
       <IconLeft />
       <div>
