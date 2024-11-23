@@ -6,7 +6,9 @@ const ChatBotTextArea = ({
   setUserMessage,
   setMessages,
   handleSendMessage,
+  openChatBot
 }: {
+  openChatBot:boolean;
   userMessage: string;
   setMessages: React.Dispatch<React.SetStateAction<IChatBotMessage[]>>;
   setUserMessage: React.Dispatch<React.SetStateAction<string>>;
@@ -18,7 +20,7 @@ const ChatBotTextArea = ({
         e.preventDefault(); // Prevent form submit refresh
         handleSendMessage(); // Send message on form submit
       }}
-      className="flex items-center justify-between px-6 shadow-inner py-4"
+      className={`flex items-center justify-between px-6 shadow-inner py-4`}
     >
       <textarea
         className="bg-white w-9/12  h-[60px] overflow-hidden py-2 text-black  placeholder:text-black  outline-none"

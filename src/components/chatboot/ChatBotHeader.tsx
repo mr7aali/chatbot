@@ -2,16 +2,19 @@ import Image from "next/image";
 import IconCancle from "../layout/Icon/IconCancle";
 import IconLeft from "../layout/Icon/IconLeft";
 import ChatBotImageIcon from "./../../../public/assets/chatbootIcon.png";
-import { useState } from "react";
 
 const ChatBotHeader = ({
   setChatBot,
+  openChatBot,
 }: {
+  openChatBot: boolean;
   setChatBot: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
- 
   return (
-    <div className="flex items-center p-6 shadow-inner ">
+    <div
+      onClick={() => setChatBot(true)}
+      className="flex items-center px-4 py-3 shadow-inner rounded-2xl "
+    >
       <IconLeft />
       <div>
         <Image
@@ -28,12 +31,17 @@ const ChatBotHeader = ({
         </span>
       </div>
 
-      <span
-        onClick={() => setChatBot((pre) => !pre)}
-        className="flex-1 flex justify-end items-center"
-      >
-        <IconCancle />
-      </span>
+      {openChatBot && (
+        <span
+          onClick={(event) => {
+            event.stopPropagation();
+            setChatBot(false);
+          }}
+          className="flex-1 flex justify-end items-center z-10"
+        >
+          <IconCancle />
+        </span>
+      )}
     </div>
   );
 };

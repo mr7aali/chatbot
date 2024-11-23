@@ -31,7 +31,7 @@ const Header = () => {
   const { cartProducts } = useContext(CartContext);
   const pathname = usePathname();
   const { data: profileData } = useProfile();
-  console.log(session);
+  console.log(profileData?.ChatingWithSystem)
   return (
     <Navbar
       className="font-semibold bg-dark py-3"

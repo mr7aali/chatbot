@@ -13,6 +13,6 @@ const MenuItemSchema = new mongoose.Schema({
   basePrice: { type: Number },
   sizes: { type: [ExtraPriceSchema] },
   extraIngredientsPrices: { type: [ExtraPriceSchema] },
-}, { timestamps: true });
+}, { timestamps: true })
 
 export const MenuItem = models?.MenuItem || mongoose.model("MenuItem", MenuItemSchema);

@@ -1,11 +1,29 @@
+"use client";
+import { useEffect, useRef } from "react";
+
 const ChatBotTextBody = ({
   messaging,
+  openChatBot,
 }: {
   messaging: { agent: "user" | "ai"; time: string; text: string }[];
+  openChatBot: boolean;
 }) => {
+  const chatBodyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    }
+  }, [messaging]);
+
   return (
-    <div className="px-6 py-2 bg-[#F4F4F4] h-96 overflow-auto">
-      {messaging.map((Item, i) => (
+    <div
+      ref={chatBodyRef}
+      className={`px-6 py-2 bg-[#F4F4F4]  overflow-auto ${
+        openChatBot ? "expandable-content" : "closing-content"
+      }`}
+    >
+      {messaging?.map((Item, i) => (
         <div
           key={i}
           className={`flex mt-2 ${

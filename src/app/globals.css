@@ -14,39 +14,72 @@ h3 {
   @apply text-xl font-josefin;
 }
 
-section.hero{
+section.hero {
   @apply block md:grid;
-  grid-template-columns: .4fr .6fr;
+  grid-template-columns: 0.4fr 0.6fr;
 }
 
 .input {
-  @apply block w-full mb-4 rounded-xl border p-2 border-gray-300 bg-gray-100 text-dark
+  @apply block w-full mb-4 rounded-xl border p-2 border-gray-300 bg-gray-100 text-dark;
 }
 
-.input:disabled{
-  @apply cursor-not-allowed bg-dark text-gray-500
+.input:disabled {
+  @apply cursor-not-allowed bg-dark text-gray-500;
 }
 
 *[data-slot="input"] {
-  @apply border-0 mb-0 px-0 text-medium
+  @apply border-0 mb-0 px-0 text-medium;
 }
 
-label{
+label {
   @apply text-gray-400 text-sm leading-tight;
 }
 
-button[type="button"], a[role="button"] {
-  @apply text-medium
+button[type="button"],
+a[role="button"] {
+  @apply text-medium;
 }
 
-button[type="submit"]{
-  @apply border-primary bg-primary text-dark text-medium
+button[type="submit"] {
+  @apply border-primary bg-primary text-dark text-medium;
 }
 
 button:disabled {
-  @apply bg-gray-300 text-gray-500 cursor-not-allowed
+  @apply bg-gray-300 text-gray-500 cursor-not-allowed;
 }
 
 button[type="submit"]:disabled {
-  @apply bg-primary border-0 cursor-not-allowed
+  @apply bg-primary border-0 cursor-not-allowed;
+}
+
+@keyframes growHeight {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 24rem;
+  }
+}
+
+@keyframes minimizeHeight {
+  0% {
+    height: 24rem;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+.expandable-content {
+  background-color: #f0f0f0;
+  padding: 16px;
+  height: 0;
+  animation: growHeight 0.2s ease-out forwards;
+}
+.closing-content {
+  background-color: #f0f0f0;
+  padding: 0px;
+  height: 0;
+  overflow: hidden;
+  animation: minimizeHeight 0.2s ease-out forwards;
 }
