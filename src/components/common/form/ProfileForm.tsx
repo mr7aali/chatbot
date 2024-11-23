@@ -48,7 +48,10 @@ const ProfileForm = ({ user, onSave }: ProfileFormProps) => {
           </div>
         </ImageUploader >
       </div>
-      <form className='col-span-4' onSubmit={(e) => onSave(e, { name: userName, image: userImage, phone, streetAddress, postalCode, city, state, country, isAdmin })}>
+      <form className='col-span-4' onSubmit={(e) => onSave(e, {
+        name: userName, image: userImage, phone, streetAddress, postalCode, city, state, country, isAdmin,
+        ChatingWithSystem: []
+      })}>
         <label> Full name</label>
         <input type="text" placeholder='Full name' value={userName ?? ''} onChange={e => setUserName(e.target.value)} className='input' />
         <label> Email</label>
