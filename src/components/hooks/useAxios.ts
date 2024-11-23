@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000/',
+
+    baseURL: "https://chatbot-backend-steel.vercel.app/",
     timeout: 10000,
     headers: { "Content-Type": "Application/json" }
 });
-
 
 
 instance.interceptors.request.use(function (config) {

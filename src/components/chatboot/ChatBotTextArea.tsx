@@ -4,13 +4,13 @@ import IconPaperPnale from "../layout/Icon/IconPaperPnale";
 const ChatBotTextArea = ({
   userMessage,
   setUserMessage,
-  setMessages,
+  // setMessages,
   handleSendMessage,
   openChatBot,
 }: {
   openChatBot: boolean;
   userMessage: string;
-  setMessages: React.Dispatch<React.SetStateAction<IChatBotMessage[]>>;
+  // setMessages: React.Dispatch<React.SetStateAction<IChatBotMessage[]>>;
   setUserMessage: React.Dispatch<React.SetStateAction<string>>;
   handleSendMessage: () => void;
 }) => {

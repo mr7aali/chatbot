@@ -16,9 +16,9 @@ export type IChatBotMessage = {
 
 const Chatboot = () => {
   const [openChatBot, setChatBot] = useState<boolean>(false);
-  const [messages, setMessages] = useState<IChatBotMessage[]>([]);
   const [userMessage, setUserMessage] = useState("");
   const { data: profileData } = useProfile();
+
   const [chatbotMessage, setChatbotMessage] = useState<IChatBotMessage[]>([
     {
       agent: "ai",
@@ -34,23 +34,6 @@ const Chatboot = () => {
     }
   }, [profileData?.ChatingWithSystem]);
 
-  // useEffect(() => {
-  //   const fetchChatbotMessages = async () => {
-  //     const data = {
-  //       userId: "673e44badf665e9f2524129a",
-  //       text: "Hi, how are you",
-  //     };
-  //     try {
-  //       const response = await Axios.post("/chatbot/reply", data);
-  //       console.log(response.data);
-  //       setChatbotMessage(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching chatbot messages:", error);
-  //     }
-  //   };
-  //   fetchChatbotMessages();
-  // }, []);
-
   const handleSendMessage = async () => {
     if (userMessage.trim() === "") return;
     const userTextData: IChatBotMessage = {
@@ -58,38 +41,27 @@ const Chatboot = () => {
       time: useConvertTimeFormatTime(new Date()),
       text: userMessage,
     };
-
-    const newMessages: IChatBotMessage[] = [
-      ...messages,
-      {
-        agent: "user",
-        text: userMessage,
-        time: useConvertTimeFormatTime(new Date()),
-      },
-    ];
-    // setChatbotMessage(newMessages);
-    // setChatbotMessage((prev): IChatBotMessage[] => prev.push(userTextData));
     setChatbotMessage((prev) => [...prev, userTextData]);
-
-    // setMessages((pre) => pre.push({ agent: "ai", text: "d", time: "d" }));
-
-    // try {
-    //   const response = await Axios.post("/api/chatbot", {
-    //     message: userMessage,
-    //   });
-    //   setMessages([
-    //     ...newMessages,
-    //     {
-    //       agent: "ai",
-    //       text: response.data.reply,
-    //       time: useConvertTimeFormatTime(new Date()),
-    //     },
-    //   ]);
-    // } catch (error) {
-    //   console.error("Error sending message:", error);
-    // }
-
     setUserMessage("");
+
+    try {
+      const response = await Axios.post("/chatbot/reply", {
+        userId: profileData?._id,
+        text: userTextData.text,
+      });
+      const chatbotRes = response.data.data as IChatBotMessage;
+      setChatbotMessage((prev) => [...prev, chatbotRes]);
+    } catch (error) {
+      console.log(error)
+      setChatbotMessage((prev) => [
+        ...prev,
+        {
+          agent: "ai",
+          time: useConvertTimeFormatTime(new Date()),
+          text: "Sorry, Something went wrong!",
+        },
+      ]);
+    }
   };
 
   return (
@@ -100,7 +72,7 @@ const Chatboot = () => {
         {openChatBot && (
           <ChatBotTextArea
             handleSendMessage={handleSendMessage}
-            setMessages={setMessages}
+            // setMessages={setMessages}
             userMessage={userMessage}
             setUserMessage={setUserMessage}
             openChatBot={openChatBot}
@@ -112,3 +84,6 @@ const Chatboot = () => {
 };
 
 export default Chatboot;
+
+
+
