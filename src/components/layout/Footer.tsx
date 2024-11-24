@@ -48,11 +48,11 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="inline-flex space-x-4">
                 <span><LocationIcon className={"w-6"} /></span>
-                <span>20 Graham Rd, Malvern WR14 2HL, United Kingdom</span>
+                <span>Mirpur-13 Dhaka,Bangladesh</span>
               </li>
               <li className="inline-flex space-x-4">
                 <span><PhoneIcon className={"w-6"} /></span>
-                <span>+44 168 4892 229</span>
+                <span>01967519057</span>
               </li>
               <li className="inline-flex space-x-4">
                 <span><MailIcon className={"w-6"} /></span>

@@ -17,15 +17,15 @@ const BusinessInfo = ({className}:SectionProps) => {
             <div className='flex gap-4 items-center'>
               <PhoneIcon className={'w-10 fill-primary'}/>
               <div className='text-center'>
-              <p className='text-lg font-semibold'>(44) 168 4892 229</p>
+              <p className='text-lg font-semibold'>01967519057</p>
               <p className='text-gray-400'>Call us now!</p>
               </div>
             </div>
             <div className='flex gap-4 items-center'>
               <LocationIcon className={'w-10 stroke-primary'}/>
               <div className='text-center'>
-              <p className='text-lg font-semibold'>20 Graham Rd</p>
-              <p className='text-gray-400'>Malvern WR14 2HL</p>
+              <p className='text-lg font-semibold'>Mirpur-13 </p>
+              <p className='text-gray-400'>Dhaka, Bangladesh</p>
               </div>
             </div>
             <div className='flex gap-4 items-center'>

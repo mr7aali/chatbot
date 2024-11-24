@@ -7,8 +7,9 @@ const Map = () => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
   });
 
-  // static lat and lng
-  const center = { lat: 52.11215635000001, lng: -2.326942450000001 };
+   // Mirpur-13, Dhaka, Bangladesh coordinates
+   const center = { lat: 23.8060, lng: 90.3688 };
+ 
 
   if (!isLoaded) return <Loader className={"h-full"}/>
 
