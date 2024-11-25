@@ -33,7 +33,7 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
 
   return (
     <>
-      <div className='flex flex-col gap-3 justify-center text-center items-center'>
+      <div  className='flex flex-col gap-3 justify-center text-center items-center'>
         <div style={{ backgroundImage: `url(${menuItem.image})`, borderRadius: '50%' }} className='bg-cover bg-center bg-no-repeat mb-4 w-[200px] h-[200px]'></div>
         <div className="flex flex-col gap-4">
           <h3>{menuItem.name}</h3>
@@ -43,7 +43,7 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
               {hasSizesOrExtras && (
                 <span >From: </span>
               )}
-              ${(menuItem.basePrice as number).toFixed(2)}
+              {(menuItem.basePrice as number).toFixed(2)}  TK
             </p>
             {session ? (
             <button className="border-2 bg-dark hover:bg-primary hover:text-dark rounded-full transition-all whitespace-nowrap px-4 py-2"  onClick={handleAddToCartClick}>Add to cart</button>

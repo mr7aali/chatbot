@@ -64,7 +64,7 @@ const MenuItemsPage = () => {
   }
 
   return (
-    <section className='pt-10 pb-20 max-w-6xl mx-auto'>
+    <section  className='pt-10 pb-20 max-w-6xl mx-auto'>
       {profileData &&
         <>
           <UserTabs admin={profileData.isAdmin} />
