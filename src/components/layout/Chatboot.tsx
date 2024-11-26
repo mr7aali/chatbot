@@ -7,6 +7,7 @@ import ChatBotTextBody from "../chatboot/ChatBotTextBody";
 import { Axios } from "../hooks/useAxios";
 import { useProfile } from "../hooks/useProfile";
 import { useConvertTimeFormatTime } from "../hooks/useConvertTimeFormatTime";
+import { redirect, usePathname } from "next/navigation";
 
 export type IChatBotMessage = {
   agent: "user" | "ai";
@@ -18,7 +19,7 @@ const Chatboot = () => {
   const [openChatBot, setChatBot] = useState<boolean>(false);
   const [userMessage, setUserMessage] = useState("");
   const { data: profileData } = useProfile();
-
+  const pathName = usePathname();
   const [chatbotMessage, setChatbotMessage] = useState<IChatBotMessage[]>([
     {
       agent: "ai",
@@ -52,7 +53,7 @@ const Chatboot = () => {
       const chatbotRes = response.data.data as IChatBotMessage;
       setChatbotMessage((prev) => [...prev, chatbotRes]);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setChatbotMessage((prev) => [
         ...prev,
         {
@@ -63,7 +64,12 @@ const Chatboot = () => {
       ]);
     }
   };
-
+  if (pathName.includes("login") || pathName.includes("register")) {
+    return <div></div>;
+  }
+  if (!profileData && openChatBot) {
+    redirect("/login");
+  }
   return (
     <div className="fixed bottom-16 right-14 z-[1000]">
       <div className=" bg-white w-[375px]">
@@ -84,6 +90,3 @@ const Chatboot = () => {
 };
 
 export default Chatboot;
-
-
-

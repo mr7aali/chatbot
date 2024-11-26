@@ -7,10 +7,10 @@ const AboutSection = ({className}:SectionProps) => {
       <div className='grid grid-cols-2'>
         <div className="bg-[url('/assets/about.jpg')] bg-center bg-no-repeat bg-cover"></div>
         <div className="p-24">
-          <h1 className="mb-4">Welcome to <span className=" text-primary">Pizza Fiesta</span></h1>
+          <h1 className="mb-4">Welcome to <span className=" text-primary">Slice Savvy</span></h1>
           <div className='text-gray-300'>
             <p className='mb-4'>
-              At Pizza Fiesta, our story is a delightful journey of passion and flavor.
+              At Slice Savvy, our story is a delightful journey of passion and flavor.
               It all began with a love for crafting the perfect pizza, blending tradition with innovation.
               Our chefs, inspired by the rich culinary heritage of Italy, handpick the finest ingredients
               to create mouthwatering masterpieces. From our artisanal crusts to the delectable toppings,

@@ -1,4 +1,4 @@
-# Pizza Fiesta Website
+# Slice Savvy Website
 This is a fullstack food ordering app built with Next.js 14 (React.js, MongoDB, Tailwind CSS).
 <br>
 

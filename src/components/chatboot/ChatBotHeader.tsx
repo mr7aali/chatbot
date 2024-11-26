@@ -25,7 +25,7 @@ const ChatBotHeader = ({
         />
       </div>
       <div className="pl-3">
-        <p className="text-[#1E1E1E] font-bold text-[18px]">Pizza Fiesta </p>
+        <p className="text-[#1E1E1E] font-bold text-[18px]">Slice Savvy </p>
         <span className="text-[#1E1E1E] font-bold text-[14px]">
           Food and entertainment
         </span>

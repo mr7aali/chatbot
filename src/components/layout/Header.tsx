@@ -39,7 +39,7 @@ const Header = () => {
     >
       <NavbarBrand>
         <Link href="/" className="text-primary text-2xl font-josefin">
-          Pizza Fiesta
+          Slice Savvy
         </Link>
       </NavbarBrand>
       <NavbarContent className="gap-8" justify="center">
