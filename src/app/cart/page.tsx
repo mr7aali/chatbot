@@ -105,7 +105,7 @@ const CartPage = () => {
                     addressProps={address}
                     setAddressProps={(propName: string, value: string) => handleAddressChange(propName, value)} disabled={false} />
                 </div>
-                <Button type='submit' color='primary' fullWidth>Pay ${(subtotal + 5).toFixed(2)}</Button>
+                <Button type='submit' color='primary' fullWidth>Pay Tk. {(subtotal + 5).toFixed(2)}</Button>
               </form>
             </div>
           </div>

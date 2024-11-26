@@ -14,7 +14,7 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
       <div className="col-span-2">
         <div
           style={{
-            backgroundImage: `url(${product.menuItem.image})`,
+            backgroundImage: `url(Tk {product.menuItem.image})`,
             borderRadius: "10%",
           }}
           className="bg-cover bg-center bg-no-repeat mb-4 w-[120px] h-[120px]"
@@ -26,7 +26,7 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
           <div className="text-sm text-gray-300 py-1">
             Size:{" "}
             <span>
-              {product.selectedSize.name} + $
+              {product.selectedSize.name} + Tk 
               {(product.selectedSize.price as number).toFixed(2)}
             </span>
           </div>
@@ -35,7 +35,7 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
           <div className="text-sm text-gray-300">
             {product.selectedExtras.map((extra, index) => (
               <div key={index}>
-                {extra.name} + ${(extra.price as number).toFixed(2)}
+                {extra.name} + Tk {(extra.price as number).toFixed(2)}
               </div>
             ))}
           </div>
@@ -45,7 +45,7 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
         <p className="font-semibold">Quantity</p>
         <p>1</p>
       </div>
-      <div className="text-right font-semibold">${productPrice.toFixed(2)}</div>
+      <div className="text-right font-semibold">Tk {productPrice.toFixed(2)}</div>
       {!!onRemove && (
         <Tooltip content="Remove">
           <div className="ml-6 cursor-pointer" onClick={onRemove}>
