@@ -16,7 +16,7 @@ const HomeMenuItemCard = ({ menuItem, index }: HomeMenuItemCardProps) => {
   if (index % 6 < 3) {
     return (
       <div className='grid grid-cols-2 '>
-        <div style={{ backgroundImage: `url(Tk {menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
+        <div style={{ backgroundImage: `url(${menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
         <div className="flex items-center" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3))" }}>
           <div className='flex flex-col gap-4 p-10'>
             <h3>{menuItem.name}</h3>
@@ -48,7 +48,7 @@ const HomeMenuItemCard = ({ menuItem, index }: HomeMenuItemCardProps) => {
             </div>
           </div>
         </div>
-        <div style={{ backgroundImage: `url( ${menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
+        <div style={{ backgroundImage: `url(${menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
       </div>
     )
   }
