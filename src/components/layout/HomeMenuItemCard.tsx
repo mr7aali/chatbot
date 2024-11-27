@@ -48,7 +48,7 @@ const HomeMenuItemCard = ({ menuItem, index }: HomeMenuItemCardProps) => {
             </div>
           </div>
         </div>
-        <div style={{ backgroundImage: `url(Tk {menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
+        <div style={{ backgroundImage: `url( ${menuItem.image})` }} className='bg-cover bg-center bg-no-repeat'></div>
       </div>
     )
   }
