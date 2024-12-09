@@ -15,5 +15,5 @@ export default function Home() {
       <HomeMenu className="pt-24" />
       <ContactSecton className="pt-12" />
     </>
-  )
+  );
 }

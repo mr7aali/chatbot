@@ -14,6 +14,12 @@ const ChatBotTextArea = ({
   setUserMessage: React.Dispatch<React.SetStateAction<string>>;
   handleSendMessage: () => void;
 }) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage(); // Submit the form
+    }
+  };
   return (
     <form
       onSubmit={(e) => {
@@ -29,6 +35,8 @@ const ChatBotTextArea = ({
         value={userMessage}
         onChange={(e) => setUserMessage(e.target.value)}
         id=""
+        onKeyDown={handleKeyDown}
+        aria-label="Message Input"
         rows={1}
       />
       <button type="submit" className="bg-white px-2 py-1 rounded-lg shadow-xl">

@@ -64,12 +64,17 @@ const Chatboot = () => {
       ]);
     }
   };
-  if (pathName.includes("login") || pathName.includes("register")) {
+  if (
+    (profileData != null && profileData.isAdmin === true) ||
+    pathName.includes("login") ||
+    pathName.includes("register")
+  ) {
     return <div></div>;
   }
   if (!profileData && openChatBot) {
     redirect("/login");
   }
+
   return (
     <div className="fixed bottom-16 right-14 z-[1000]">
       <div className=" bg-white w-[375px]">

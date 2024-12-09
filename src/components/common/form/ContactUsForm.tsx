@@ -18,8 +18,6 @@ const ContactUsForm = () => {
   const EMAILJS_SERVICE_ID = process.env
     .NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
 
-
-    console.log(EMAILJS_TEMPLATE_ID)
   const isInvalid = useMemo(() => {
     if (emailValue === "") return false;
     return validateEmail(emailValue) ? false : true;
@@ -40,7 +38,7 @@ const ContactUsForm = () => {
         .then((result) => {
           if (result.status === 200) {
             resolve(result.text);
-            console.log(result)
+            console.log(result);
           } else {
             reject();
           }
@@ -56,7 +54,6 @@ const ContactUsForm = () => {
     (e.target as HTMLFormElement).reset();
     setSubmitting(false);
   };
-
 
   return (
     <form
