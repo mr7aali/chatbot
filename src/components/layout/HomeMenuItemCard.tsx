@@ -24,7 +24,7 @@ const HomeMenuItemCard = ({ menuItem, index }: HomeMenuItemCardProps) => {
             <div className='flex items-center gap-4'>
               <p className='text-primary'>
                 {hasSizesOrExtras && (<span >From: </span>)}
-                ${(menuItem.basePrice as number).toFixed(2)}
+                Tk. {(menuItem.basePrice as number).toFixed(2)}
               </p>
               <Button as={Link} href={session ? '/menu' : '/login'} radius='none' size='sm' className='bg-transparent border hover:bg-primary hover:text-dark'>Order</Button>
             </div>
@@ -42,7 +42,7 @@ const HomeMenuItemCard = ({ menuItem, index }: HomeMenuItemCardProps) => {
             <div className='flex items-center gap-4 justify-end'>
               <p className='text-primary'>
                 {hasSizesOrExtras && (<span >From: </span>)}
-                ${(menuItem.basePrice as number).toFixed(2)}
+                Tk {(menuItem.basePrice as number).toFixed(2)}
               </p>
               <Button as={Link} href={session ? '/menu' : '/login'} radius='none' size='sm' className='bg-transparent border hover:bg-primary hover:text-dark'>Order</Button>
             </div>
