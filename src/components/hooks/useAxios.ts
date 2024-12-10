@@ -4,7 +4,7 @@ import axios from "axios";
 const localHost = "http://localhost:5000/";
 const serverUrl = "https://chatbot-backend-steel.vercel.app/"
 const instance = axios.create({
-    baseURL: localHost,
+    baseURL: serverUrl,
     timeout: 10000,
     headers: { "Content-Type": "Application/json" }
 });

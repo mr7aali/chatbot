@@ -148,18 +148,21 @@ const Header = () => {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <Button
-              as={Link}
-              href="/cart"
-              className="bg-transparent relative min-w-10"
-              startContent={<CartIcon className={"w-8 stroke-white"} />}
-            >
-              {cartProducts.length > 0 && (
-                <span className="w-4 h-4 rounded-full bg-primary text-dark text-xs text-center absolute right-1 top-0">
-                  {cartProducts.length}
-                </span>
-              )}
-            </Button>
+
+            {profileData != null && !profileData.isAdmin && (
+              <Button
+                as={Link}
+                href="/cart"
+                className="bg-transparent relative min-w-10"
+                startContent={<CartIcon className={"w-8 stroke-white"} />}
+              >
+                {cartProducts.length > 0 && (
+                  <span className="w-4 h-4 rounded-full bg-primary text-dark text-xs text-center absolute right-1 top-0">
+                    {cartProducts.length}
+                  </span>
+                )}
+              </Button>
+            )}
           </div>
         ) : (
           <div className="flex gap-6 items-center">
