@@ -6,7 +6,7 @@ const AboutSection = ({ className }: SectionProps) => {
     <section id="about" className={className}>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="bg-[url('/assets/about.jpg')] h-[300px] lg:h-auto bg-center bg-no-repeat bg-cover"></div>
-        <div className="p-24">
+        <div className="p-10 text-justify lg:p-24">
           <h1 className="mb-4">
             Welcome to <span className=" text-primary">Slice Savvy</span>
           </h1>
