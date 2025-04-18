@@ -57,7 +57,11 @@ const Header = () => {
         </Link>
       </NavbarBrand>
 
-      <NavbarContent className="flex md:hidden" justify="start">
+      <NavbarContent
+        style={{ border: "1px solid red" }}
+        className="flex md:hidden"
+        justify="start"
+      >
         <Button className="bg-transparent" onPress={() => setSidebarOpen(true)}>
           <Image src={threeDots} alt="menu" width={30} height={30} />
         </Button>
@@ -102,7 +106,7 @@ const Header = () => {
           <NavbarItem key={item.name} isActive={pathname === item.path}>
             <Link
               href={item.path}
-              className="hover:text-primary text-sm lg:text-[16px]"
+              className="hover:text-primary text-sm lg:text-[18px]"
               aria-current="page"
             >
               {item.name}
@@ -206,7 +210,7 @@ const Header = () => {
             )}
           </div>
         ) : (
-          <div className="flex gap-5 lg:gap-6 items-center text-sm lg:text-[16px]">
+          <div className="flex gap-5 lg:gap-6 items-center text-sm lg:text-[18px]">
             {session === null && (
               <>
                 <Link href={"/login"} className="hover:text-primary ">
