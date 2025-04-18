@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 pt-12">
+    <footer className="bg-gray-950 pt-12 pb-36">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 mb-6 px-10 lg:px-48">
         <div className="col-span-full lg:col-span-1 lg:block">
           <Link href="/" className="text-primary text-2xl font-josefin">

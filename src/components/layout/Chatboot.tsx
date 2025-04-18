@@ -76,8 +76,8 @@ const Chatboot = () => {
   }
 
   return (
-    <div className="fixed bottom-16 right-14 z-[1000]">
-      <div className=" bg-white w-[375px]">
+    <div className="fixed bottom-0 right-0 w-full sm:w-auto sm:bottom-2 sm:right-2 md:bottom-14 md:right-12 lg:bottom-16 lg:right-14 z-[1000]">
+      <div className=" bg-white w-full sm:w-[375px]">
         <ChatBotHeader setChatBot={setChatBot} openChatBot={openChatBot} />
         <ChatBotTextBody messaging={chatbotMessage} openChatBot={openChatBot} />
         {openChatBot && (

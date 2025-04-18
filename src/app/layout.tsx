@@ -8,7 +8,6 @@ import PrelineScript from "@/util/PrelineScript";
 import { UIProvider } from "@/util/UIProvider";
 import Chatboot from "@/components/layout/Chatboot";
 
-
 export const metadata: Metadata = {
   title: "Slice Savvy: Order Delicious Pizzas Online",
   description:
@@ -20,7 +19,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
- 
   return (
     <html lang="en" className="scroll-smooth dark">
       <head>

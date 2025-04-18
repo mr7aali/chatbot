@@ -7,7 +7,7 @@ const HomeSlider = ({ className }: SectionProps) => {
     <section className={className}>
       <div
         data-hs-carousel='{"loadingClasses": "opacity-0", "isAutoPlay": true}'
-        className="relative h-96 sm:h-[630px]  lg:h-[850px] z-0"
+        className="relative h-[420px] sm:h-[630px]  lg:h-[850px] z-0"
       >
         <div className="hs-carousel relative overflow-hidden w-full h-full">
           <div className="hs-carousel-body w-full absolute top-0 bottom-0 start-0 flex flex-nowrap duration-700 ease-in-out delay-200 opacity-0">
