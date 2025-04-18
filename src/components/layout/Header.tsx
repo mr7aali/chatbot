@@ -26,50 +26,91 @@ import { usePathname } from "next/navigation";
 import { CartContext } from "../../util/ContextProvider";
 import { useProfile } from "../hooks/useProfile";
 
+import threeDots from "../../../public/threeDotsIcon.png";
+import Image from "next/image";
+
 const Header = () => {
   const { data: session } = useSession();
   const { cartProducts } = useContext(CartContext);
   const pathname = usePathname();
   const { data: profileData } = useProfile();
+  const [sideBarOpen, setSidebarOpen] = React.useState<boolean>(false);
+  const menuItem: { name: string; path: string }[] = [
+    { name: "Home", path: "/" },
+    { name: "Menu", path: "/menu" },
+    { name: "Services", path: "/services" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
     <Navbar
       className="font-semibold bg-dark py-3"
       classNames={{ item: "data-[active=true]:text-primary" }}
     >
-      <NavbarBrand>
-        <Link href="/" className="text-primary text-2xl font-josefin">
+      <NavbarBrand className="hidden md:flex">
+        <Link
+          href="/"
+          className="text-primary text-[22px] lg:text-2xl font-josefin"
+        >
           Slice Savvy
         </Link>
       </NavbarBrand>
-      <NavbarContent className="gap-8" justify="center">
-        <NavbarItem isActive={pathname === "/"}>
-          <Link href="/" aria-current="page" className="hover:text-primary">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/menu"}>
-          <Link href="/menu" className="hover:text-primary">
-            Menu
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/services"}>
-          <Link href="/services" className="hover:text-primary">
-            Services
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/about"}>
-          <Link href="/about" className="hover:text-primary">
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/contact"}>
-          <Link href="/contact" className="hover:text-primary">
-            Contact
-          </Link>
-        </NavbarItem>
+
+      <NavbarContent className="flex md:hidden" justify="start">
+        <Button className="bg-transparent" onPress={() => setSidebarOpen(true)}>
+          <Image src={threeDots} alt="menu" width={30} height={30} />
+        </Button>
+        <div
+          className={`${
+            sideBarOpen ? "translate-x-0" : "translate-x-[-260px]"
+          }  w-64 absolute top-0 left-0  h-screen bg-dark z-50 px-6 `}
+        >
+          <NavbarBrand className="flex justify-center items-center py-4">
+            <Link
+              href="/"
+              className="text-primary text-[22px] lg:text-2xl font-josefin"
+              onClick={(pre) => setSidebarOpen(!pre)}
+            >
+              Slice Savvy
+            </Link>
+          </NavbarBrand>
+          {menuItem.map((item) => (
+            <NavbarItem
+              key={item.name}
+              isActive={pathname === item.path}
+              className="flex items-center gap-2 py-4 justify-center"
+              onClick={(pre) => setSidebarOpen(!pre)}
+              style={{ borderTop: "1px solid #4B5563" }}
+            >
+              <Link
+                href={item.path}
+                className="hover:text-primary text-sm lg:text-[16px]"
+                aria-current="page"
+              >
+                {item.name}
+              </Link>
+            </NavbarItem>
+          ))}
+        </div>
       </NavbarContent>
-      <NavbarContent justify="end">
+      <NavbarContent
+        className="gap-5 hidden md:flex lg:gap-8 w-full"
+        justify="center"
+      >
+        {menuItem.map((item) => (
+          <NavbarItem key={item.name} isActive={pathname === item.path}>
+            <Link
+              href={item.path}
+              className="hover:text-primary text-sm lg:text-[16px]"
+              aria-current="page"
+            >
+              {item.name}
+            </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
+      <NavbarContent className="" justify="end">
         {profileData ? (
           <div className="flex items-center h-full">
             <Dropdown className="text-gray-300">
@@ -165,19 +206,19 @@ const Header = () => {
             )}
           </div>
         ) : (
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-5 lg:gap-6 items-center text-sm lg:text-[16px]">
             {session === null && (
               <>
-                <Link href={"/login"} className="hover:text-primary">
+                <Link href={"/login"} className="hover:text-primary ">
                   Login
                 </Link>
                 <Button
-                  as={Link}
+                  // as={Link}
                   color="primary"
                   href={"/register"}
-                  className="font-semibold rounded-full px-6 py-2 text-dark"
+                  className=" font-semibold rounded-full px-6 py-2 text-dark block"
                 >
-                  Sign Up
+                  <span className="text-sm lg:text-[16px]">Sign Up</span>
                 </Button>
               </>
             )}
