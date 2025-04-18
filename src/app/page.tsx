@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <>
       <HomeSlider />
-      {/* <BusinessInfo />
+      <BusinessInfo />
       <AboutSection />
       <ServicesSection />
       <HomeMenu className="pt-24" />
-      <ContactSecton className="pt-12" /> */}
+      <ContactSecton className="pt-12" />
     </>
   );
 }

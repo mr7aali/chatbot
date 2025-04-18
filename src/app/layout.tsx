@@ -38,7 +38,7 @@ export default function RootLayout({
               <Toaster />
               <Header />
               {children}
-              <Chatboot />
+              {/* <Chatboot /> */}
               <Footer />
             </AppContextProvider>
           </main>
