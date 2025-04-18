@@ -57,11 +57,7 @@ const Header = () => {
         </Link>
       </NavbarBrand>
 
-      <NavbarContent
-        style={{ border: "1px solid red" }}
-        className="flex md:hidden"
-        justify="start"
-      >
+      <NavbarContent className="flex md:hidden" justify="start">
         <Button className="bg-transparent" onPress={() => setSidebarOpen(true)}>
           <Image src={threeDots} alt="menu" width={30} height={30} />
         </Button>
@@ -217,7 +213,7 @@ const Header = () => {
                   Login
                 </Link>
                 <Button
-                  // as={Link}
+                  as={Link}
                   color="primary"
                   href={"/register"}
                   className=" font-semibold rounded-full px-6 py-2 text-dark block"
