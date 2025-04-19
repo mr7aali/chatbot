@@ -87,7 +87,7 @@ const CartPage = () => {
       </Link>
       {cartProducts.length > 0 && (
         <div className="grid grid-cols-1 lg:grid-cols-5 px-1 sm:px-10 mt-8 gap-12">
-          <div className="col-span-1 lg:col-span-3 ">
+          <div className="col-span-1 px-2 lg:col-span-3 ">
             <h2 className="border-b-1 font-semibold py-3 text-primary">Cart</h2>
             <div>
               {cartProducts &&

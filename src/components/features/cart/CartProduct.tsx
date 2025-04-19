@@ -11,8 +11,8 @@ interface CartProductProps {
 const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
   console.log(product.menuItem.image);
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-8 gap-4 border-b pt-2">
-      <div className="sm:col-span-2 col-span-1">
+    <div className="sm:grid flex flex-col items-center  grid-cols-8 gap-4 border-b pt-2">
+      <div className="col-span-2 mt-3 sm:mt-0">
         <div
           style={{
             backgroundImage: `url(${product.menuItem.image})`,
@@ -21,12 +21,14 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
           className="bg-cover bg-center bg-no-repeat mb-4 w-[120px] h-[120px]"
         ></div>
       </div>
-      <div className="sm:col-span-3 px-4 col-span-1">
-        <p className="font-semibold">{product.menuItem.name}</p>
+      <div className="col-span-3 px-4 ">
+        <p className="font-semibold text-center sm:text-left">
+          {product.menuItem.name}
+        </p>
         {product.selectedSize && (
           <div className="text-sm text-gray-300 py-1">
             Size:{" "}
-            <span>
+            <span className="">
               {product.selectedSize.name} + Tk
               {(product.selectedSize.price as number).toFixed(2)}
             </span>
@@ -42,11 +44,11 @@ const CartProduct = ({ product, productPrice, onRemove }: CartProductProps) => {
           </div>
         )}
       </div>
-      <div className="text-left pl-4 sm:pl-4 sm:text-center">
+      <div className="text-center">
         <p className="font-semibold">Quantity</p>
         <p>1</p>
       </div>
-      <div className="text-left pl-4 sm:pl-0 sm:text-right font-semibold">
+      <div className="text-right font-semibold">
         Tk {productPrice.toFixed(2)}
       </div>
       {!!onRemove && (
