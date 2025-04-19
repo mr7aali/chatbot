@@ -70,7 +70,9 @@ const CartPage = () => {
     return (
       <section className="max-w-2xl mx-auto my-16">
         <div className="my-4 flex flex-col gap-4 items-center">
-          <p className="text-3xl font-semibold">Your Shopping Cart is Empty</p>
+          <p className="text-3xl font-semibold text-center px-3">
+            Your Shopping Cart is Empty
+          </p>
           <Link href={"/menu"} className="text-primary font-semibold">
             <span>Continue shopping</span>
           </Link>
@@ -83,7 +85,7 @@ const CartPage = () => {
     <section className="pt-10 pb-20 max-w-6xl mx-auto">
       <Link href={"/menu"} className="text-primary font-semibold">
         <ChevronLeftIcon className={"w-4 mr-2"} />
-        <span>Continue shopping</span>
+        <span>Continue shopping </span>
       </Link>
       {cartProducts.length > 0 && (
         <div className="grid grid-cols-1 lg:grid-cols-5 px-1 sm:px-10 mt-8 gap-12">
