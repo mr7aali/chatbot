@@ -60,9 +60,10 @@ const Header = () => {
       <div
         onClick={() => setSidebarOpen(false)}
         className={`${
-          sideBarOpen ? "block z-40" : "hidden z-[-100]"
-        } w-full h-screen absolute top-0 left-0 right-0 bottom-0  backdrop-blur-lg`}
-      ></div>
+          sideBarOpen ? "fixed inset-0 z-40 block" : "hidden"
+        } w-full backdrop-blur-lg`}
+      />
+
       <Navbar
         className="font-semibold bg-dark py-3 shadow-xl "
         classNames={{ item: "data-[active=true]:text-primary" }}
