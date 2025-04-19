@@ -73,7 +73,7 @@ const Header = () => {
         <div
           className={`${
             sideBarOpen ? "translate-x-0" : "translate-x-[-260px]"
-          }  w-64 absolute top-0 left-0  h-screen bg-dark z-50 px-6 `}
+          }  w-64 absolute top-0 left-0 transition-all duration-400  h-screen bg-dark z-50 px-6 `}
         >
           <NavbarBrand className="flex justify-center items-center py-4">
             <Link
