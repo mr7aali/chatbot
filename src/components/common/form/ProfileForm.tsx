@@ -33,23 +33,23 @@ const ProfileForm = ({ user, onSave }: ProfileFormProps) => {
   }
 
   return (
-    <div className="grid grid-cols-6 gap-4">
-      <div className="col-span-2">
+    <div className="grid md:grid-cols-6 gap-4">
+      <div className="col-span-1 md:col-span-2 flex justify-center items-center md:block">
         <ImageUploader setImageLink={setUserImage}>
-          <div className="relative">
+          <div className="relative ">
             {userImage ? (
               <Avatar src={userImage!} className="w-[160px] h-[160px]" />
             ) : (
               <Avatar src="" showFallback className="w-[160px] h-[160px]" />
             )}
-            <div className="bg-primary text-dark rounded-full p-2 absolute right-11 bottom-6 hover:text-white">
+            <div className="bg-primary text-dark rounded-full p-2 absolute right-1 md:right-11 bottom-1 md:bottom-6 hover:text-white">
               <PencilIcon className={"w-5"} />
             </div>
           </div>
         </ImageUploader>
       </div>
       <form
-        className="col-span-4"
+        className="col-span-1 md:col-span-4 px-5 md:px-0"
         onSubmit={(e) =>
           onSave(e, {
             name: userName,

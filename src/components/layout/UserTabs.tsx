@@ -1,30 +1,36 @@
-import { MenuIcon } from "@/icons/MenuIcon"
-import { ShoppingBagIcon } from "@/icons/ShoppingBagIcon"
-import { TagIcon } from "@/icons/TagIcon"
-import { UserIcon } from "@/icons/UserIcon"
-import { UsersIcon } from "@/icons/UsersIcon"
-import { Button, Link } from "@nextui-org/react"
-import { usePathname } from "next/navigation"
+import { MenuIcon } from "@/icons/MenuIcon";
+import { ShoppingBagIcon } from "@/icons/ShoppingBagIcon";
+import { TagIcon } from "@/icons/TagIcon";
+import { UserIcon } from "@/icons/UserIcon";
+import { UsersIcon } from "@/icons/UsersIcon";
+import { Button, Link } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 
 interface UserTabsProps {
-  admin: boolean
-  className?: string
+  admin: boolean;
+  className?: string;
 }
 
 const UserTabs = ({ admin, className }: UserTabsProps) => {
   const pathname = usePathname();
-  const activeTabStyle = "bg-primary text-dark border-white"
-  const inactiveTabStyle = "bg-dark border-primary text-primary hover:bg-primary hover:text-dark hover:border-white"
+  const activeTabStyle = "bg-primary text-dark border-white";
+  const inactiveTabStyle =
+    "bg-dark border-primary text-primary hover:bg-primary hover:text-dark hover:border-white";
 
   return (
-    <div className={`w-full flex justify-center items-center gap-6 ${className}`}>
+    <div
+      className={`w-full grid grid-cols-1 sm:flex justify-center items-center gap-3 lg:gap-6 px-3 ${className}`}
+    >
       <Button
         as={Link}
         fullWidth
         radius="full"
         href="/profile"
         startContent={<UserIcon className={"w-6 stroke-2"} />}
-        className={`border-2 font-semibold ${pathname.includes("/profile") ? activeTabStyle : inactiveTabStyle}`}>
+        className={`border-2 font-semibold   ${
+          pathname.includes("/profile") ? activeTabStyle : inactiveTabStyle
+        }`}
+      >
         Profile
       </Button>
       <Button
@@ -33,7 +39,10 @@ const UserTabs = ({ admin, className }: UserTabsProps) => {
         radius="full"
         href="/orders"
         startContent={<ShoppingBagIcon className={"w-6 stroke-2"} />}
-        className={`border-2 font-semibold ${pathname.includes("/orders") ? activeTabStyle : inactiveTabStyle}`}>
+        className={`border-2 font-semibold ${
+          pathname.includes("/orders") ? activeTabStyle : inactiveTabStyle
+        }`}
+      >
         Orders
       </Button>
       {admin && (
@@ -44,7 +53,12 @@ const UserTabs = ({ admin, className }: UserTabsProps) => {
             radius="full"
             href="/categories"
             startContent={<TagIcon className={"w-6 stroke-2"} />}
-            className={`border-2 font-semibold ${pathname.includes("/categories") ? activeTabStyle : inactiveTabStyle}`}>
+            className={`border-2 font-semibold ${
+              pathname.includes("/categories")
+                ? activeTabStyle
+                : inactiveTabStyle
+            }`}
+          >
             Categories
           </Button>
           <Button
@@ -53,7 +67,12 @@ const UserTabs = ({ admin, className }: UserTabsProps) => {
             radius="full"
             href="/menu-items"
             startContent={<MenuIcon className={"w-6 stroke-2"} />}
-            className={`border-2 ${pathname.includes("/menu-items") ? activeTabStyle : inactiveTabStyle}`}>
+            className={`border-2 ${
+              pathname.includes("/menu-items")
+                ? activeTabStyle
+                : inactiveTabStyle
+            }`}
+          >
             Menu Items
           </Button>
           <Button
@@ -62,13 +81,16 @@ const UserTabs = ({ admin, className }: UserTabsProps) => {
             radius="full"
             href="/users"
             startContent={<UsersIcon className={"w-6 stroke-2"} />}
-            className={`border-2 ${pathname.includes("/users") ? activeTabStyle : inactiveTabStyle}`}>
+            className={`border-2 ${
+              pathname.includes("/users") ? activeTabStyle : inactiveTabStyle
+            }`}
+          >
             Users
           </Button>
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default UserTabs
+export default UserTabs;

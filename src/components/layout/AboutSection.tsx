@@ -10,7 +10,7 @@ const AboutSection = ({ className }: SectionProps) => {
           <h1 className="mb-4">
             Welcome to <span className=" text-primary">Slice Savvy</span>
           </h1>
-          <div className="text-gray-300 text-justify ">
+          <div className="text-gray-300">
             <p className="mb-4">
               At Slice Savvy, our story is a delightful journey of passion and
               flavor. It all began with a love for crafting the perfect pizza,
