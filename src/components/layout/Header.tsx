@@ -45,7 +45,7 @@ const Header = () => {
 
   return (
     <Navbar
-      className="font-semibold bg-dark py-3"
+      className="font-semibold bg-dark py-3 shadow-xl"
       classNames={{ item: "data-[active=true]:text-primary" }}
     >
       <NavbarBrand className="hidden md:flex">
@@ -58,8 +58,17 @@ const Header = () => {
       </NavbarBrand>
 
       <NavbarContent className="flex md:hidden" justify="start">
-        <Button className="bg-transparent" onPress={() => setSidebarOpen(true)}>
-          <Image src={threeDots} alt="menu" width={30} height={30} />
+        <Button
+          className="bg-transparent relative"
+          onPress={() => setSidebarOpen(true)}
+        >
+          <Image
+            className="absolute top-0 left-0"
+            src={threeDots}
+            alt="menu"
+            width={30}
+            height={30}
+          />
         </Button>
         <div
           className={`${
@@ -92,6 +101,14 @@ const Header = () => {
               </Link>
             </NavbarItem>
           ))}
+
+          <button
+            className="flex rounded-full justify-center items-center w-full py-3 mt-4 text-[#fac564]"
+            style={{ border: "2px  solid #fac564" }}
+            onClick={() => setSidebarOpen(false)}
+          >
+            <span className="uppercase text-[#fac564] text-xs">Close</span>
+          </button>
         </div>
       </NavbarContent>
       <NavbarContent
@@ -131,6 +148,7 @@ const Header = () => {
                   disableAnimation
                 />
               </DropdownTrigger>
+
               <DropdownMenu
                 aria-label="Link Actions"
                 color="primary"
