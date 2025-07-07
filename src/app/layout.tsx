@@ -7,6 +7,23 @@ import { Toaster } from "react-hot-toast";
 import PrelineScript from "@/util/PrelineScript";
 import { UIProvider } from "@/util/UIProvider";
 import Chatboot from "@/components/layout/Chatboot";
+import { Josefin_Sans, Nothing_You_Could_Do } from "next/font/google";
+
+// Configure Josefin Sans
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+  variable: "--font-josefin-sans",
+});
+
+// Configure Nothing You Could Do
+const nothingYouCouldDo = Nothing_You_Could_Do({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-nothing-you-could-do",
+});
 
 export const metadata: Metadata = {
   title: "Slice Savvy: Order Delicious Pizzas Online",
@@ -20,18 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,500,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-poppins bg-[url('/assets/bg_dark.jpg')] bg-repeat bg-fixed">
+    <html
+      lang="en"
+      className={`${josefinSans.variable} ${nothingYouCouldDo.variable} scroll-smooth dark`}
+    >
+      <body className="font-poppins bg-repeat bg-fixed bg-[url('/assets/bg_dark.jpg')] ">
         <UIProvider>
           <main>
             <AppContextProvider>
@@ -43,8 +53,8 @@ export default function RootLayout({
             </AppContextProvider>
           </main>
         </UIProvider>
+        <PrelineScript />
       </body>
-      <PrelineScript />
     </html>
   );
 }

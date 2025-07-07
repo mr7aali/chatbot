@@ -65,13 +65,13 @@ const Header = () => {
       />
 
       <Navbar
-        className="font-semibold bg-dark py-3 shadow-xl "
+        className="font-semibold bg-dark py-3 shadow-2xl rounded-b-2xl border-b border-[#fac564]/20 backdrop-blur-md transition-all duration-300"
         classNames={{ item: "data-[active=true]:text-primary" }}
       >
         <NavbarBrand className="hidden md:flex">
           <Link
             href="/"
-            className="text-primary text-[22px] lg:text-2xl font-josefin"
+            className="text-primary text-[22px] lg:text-2xl font-josefin tracking-wide drop-shadow-md hover:scale-105 transition-transform duration-200"
           >
             Slice Savvy
           </Link>
@@ -79,7 +79,7 @@ const Header = () => {
 
         <NavbarContent className="flex md:hidden " justify="start">
           <Button
-            className="bg-transparent relative"
+            className="bg-transparent relative hover:bg-[#fac564]/10 rounded-full p-2 transition-colors"
             onPress={() => setSidebarOpen(true)}
           >
             <Image
@@ -91,16 +91,28 @@ const Header = () => {
             />
           </Button>
 
+          {/* Sidebar overlay */}
+          <div
+            className={`fixed inset-0 z-40 transition-all duration-300 ${
+              sideBarOpen
+                ? "bg-black/40 visible opacity-100"
+                : "invisible opacity-0"
+            }`}
+            onClick={() => setSidebarOpen(false)}
+          />
+
+          {/* Sidebar */}
           <div
             className={`${
-              sideBarOpen ? "translate-x-0" : "translate-x-[-260px]"
-            }  w-64 absolute  top-0 left-0 transition-all duration-400  h-screen bg-dark z-50 px-6 `}
+              sideBarOpen ? "translate-x-0" : "-translate-x-72"
+            } w-64 fixed top-0 left-0 transition-transform duration-300 h-screen bg-dark z-50 px-6 shadow-2xl rounded-r-2xl border-r border-[#fac564]/20`}
+            style={{ willChange: "transform" }}
           >
             <NavbarBrand className="flex justify-center items-center py-4">
               <Link
                 href="/"
-                className="text-primary text-[22px] lg:text-2xl font-josefin"
-                onClick={(pre) => setSidebarOpen(!pre)}
+                className="text-primary text-[22px] lg:text-2xl font-josefin tracking-wide drop-shadow-md hover:scale-105 transition-transform duration-200"
+                onClick={() => setSidebarOpen(false)}
               >
                 Slice Savvy
               </Link>
@@ -109,13 +121,15 @@ const Header = () => {
               <NavbarItem
                 key={item.name}
                 isActive={pathname === item.path}
-                className="flex items-center gap-2 py-4 justify-center"
-                onClick={(pre) => setSidebarOpen(!pre)}
+                className="flex items-center gap-2 py-4 justify-center rounded-lg transition-colors duration-200 hover:bg-[#fac564]/10"
+                onClick={() => setSidebarOpen(false)}
                 style={{ borderTop: "1px solid #4B5563" }}
               >
                 <Link
                   href={item.path}
-                  className="hover:text-primary text-sm lg:text-[16px]"
+                  className={`hover:text-primary text-sm lg:text-[16px] transition-colors duration-200 ${
+                    pathname === item.path ? "text-primary" : "text-gray-200"
+                  }`}
                   aria-current="page"
                 >
                   {item.name}
@@ -124,11 +138,12 @@ const Header = () => {
             ))}
 
             <button
-              className="flex rounded-full justify-center items-center w-full py-3 mt-4 text-[#fac564]"
-              style={{ border: "2px  solid #fac564" }}
+              className="flex rounded-full justify-center items-center w-full py-3 mt-4 text-[#fac564] border-2 border-[#fac564] hover:bg-[#fac564]/10 transition-colors duration-200"
               onClick={() => setSidebarOpen(false)}
             >
-              <span className="uppercase text-[#fac564] text-xs">Close</span>
+              <span className="uppercase text-[#fac564] text-xs tracking-wider">
+                Close
+              </span>
             </button>
           </div>
         </NavbarContent>
@@ -141,7 +156,11 @@ const Header = () => {
             <NavbarItem key={item.name} isActive={pathname === item.path}>
               <Link
                 href={item.path}
-                className="hover:text-primary text-sm lg:text-[18px]"
+                className={`hover:text-primary text-sm lg:text-[18px] px-3 py-1 rounded-lg transition-colors duration-200 ${
+                  pathname === item.path
+                    ? "text-primary bg-[#fac564]/10"
+                    : "text-gray-200"
+                }`}
                 aria-current="page"
               >
                 {item.name}
@@ -151,17 +170,18 @@ const Header = () => {
         </NavbarContent>
         <NavbarContent className="" justify="end">
           {profileData ? (
-            <div className="flex items-center h-full">
-              <Dropdown className="text-gray-300">
+            <div className="flex items-center h-full gap-2">
+              <Dropdown className="text-gray-300 shadow-lg rounded-xl">
                 <DropdownTrigger>
                   <Button
-                    className="bg-transparent h-full"
+                    className="bg-transparent h-full px-1 hover:bg-[#fac564]/10 rounded-full transition-colors"
                     startContent={
                       <Avatar
                         src={profileData?.image ? profileData.image : ""}
                         isBordered
                         color="primary"
                         size="sm"
+                        className="shadow-md"
                       />
                     }
                     endContent={
@@ -175,6 +195,7 @@ const Header = () => {
                   aria-label="Link Actions"
                   color="primary"
                   variant="flat"
+                  className="rounded-xl shadow-xl"
                 >
                   <DropdownItem
                     key="profile"
@@ -234,11 +255,11 @@ const Header = () => {
                 <Button
                   as={Link}
                   href="/cart"
-                  className="bg-transparent relative min-w-10"
+                  className="bg-transparent relative min-w-10 hover:bg-[#fac564]/10 rounded-full p-2 transition-colors"
                   startContent={<CartIcon className={"w-8 stroke-white"} />}
                 >
                   {cartProducts.length > 0 && (
-                    <span className="w-4 h-4 rounded-full bg-primary text-dark text-xs text-center absolute right-1 top-0">
+                    <span className="w-5 h-5 rounded-full bg-primary text-dark text-xs text-center absolute right-1 top-0 flex items-center justify-center shadow-lg border-2 border-dark animate-bounce">
                       {cartProducts.length}
                     </span>
                   )}
@@ -249,14 +270,17 @@ const Header = () => {
             <div className="flex gap-5 lg:gap-6 items-center text-sm lg:text-[18px]">
               {session === null && (
                 <>
-                  <Link href={"/login"} className="hover:text-primary ">
+                  <Link
+                    href={"/login"}
+                    className="hover:text-primary transition-colors"
+                  >
                     Login
                   </Link>
                   <Button
                     as={Link}
                     color="primary"
                     href={"/register"}
-                    className=" font-semibold rounded-full px-6 py-2 text-dark block"
+                    className="font-semibold rounded-full px-6 py-2 text-dark block shadow-md hover:scale-105 transition-transform duration-200"
                   >
                     <span className="text-sm lg:text-[16px]">Sign Up</span>
                   </Button>
