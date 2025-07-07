@@ -28,7 +28,7 @@ const BusinessInfo = ({ className }: SectionProps) => {
   ];
   return (
     <section className={className}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 rounded-2xl overflow-hidden shadow-2xl">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  overflow-hidden shadow-2xl ">
         <div className="col-span-2 py-10 bg-dark/90 backdrop-blur-md">
           <div className="flex justify-between items-center sm:items-center sm:justify-center flex-col sm:flex-row gap-6 sm:gap-12 md:gap-16 px-4">
             {Item.map((item, index) => (
@@ -51,7 +51,7 @@ const BusinessInfo = ({ className }: SectionProps) => {
             ))}
           </div>
         </div>
-        <div className="bg-primary/90 py-10 text-center flex justify-center items-center flex-row gap-6 rounded-none lg:rounded-r-2xl">
+        <div className="bg-primary/90 py-10 text-center flex justify-center items-center flex-row gap-6 rounded-none ">
           <Button
             as={Link}
             href="https://twitter.com"

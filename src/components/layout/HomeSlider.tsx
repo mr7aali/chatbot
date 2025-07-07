@@ -12,7 +12,7 @@ const HomeSlider = ({ className }: SectionProps) => {
         <div className="hs-carousel relative overflow-hidden w-full h-full">
           <div className="hs-carousel-body w-full absolute top-0 bottom-0 start-0 flex flex-nowrap duration-700 ease-in-out delay-200 opacity-0">
             {/* First Slide */}
-            <SlideBackground bgImage="/assets/slider_bg_1.jpg">
+            <SlideBackground bgImage="/assets/slider_bg_1_reduce.jpg">
               <div className="w-full flex flex-col justify-center text-center h-full absolute z-10 px-4">
                 <span className="font-nothingYouCouldDo text-primary text-[40px] mb-4 drop-shadow-lg animate-fade-in">
                   Welcome
@@ -52,11 +52,11 @@ const HomeSlider = ({ className }: SectionProps) => {
             </SlideBackground>
 
             {/* Second Slide */}
-            <SlideBackground bgImage="/assets/slider_bg_2.jpg">
+            <SlideBackground bgImage="/assets/slider_bg_2_reduce.jpg">
               <div className="w-full flex flex-row gap-6 justify-center items-center h-full absolute z-10 px-4">
                 <div className="hidden sm:flex w-1/4 animate-zoom-in">
                   <Image
-                    src="/assets/slider_pizza_1.png"
+                    src="/assets/slider_pizza_1_optimized.png"
                     alt="Pizza"
                     className="rounded-2xl shadow-2xl"
                   />
@@ -98,7 +98,7 @@ const HomeSlider = ({ className }: SectionProps) => {
             </SlideBackground>
 
             {/* Third Slide */}
-            <SlideBackground bgImage="/assets/slider_bg_2.jpg">
+            <SlideBackground bgImage="/assets/slider_bg_2_reduce.jpg">
               <div className="w-full flex flex-row gap-6 justify-center items-center h-full absolute z-10 px-4">
                 <div className="max-w-xl text-end mr-6 animate-slide-up">
                   <span className="font-nothingYouCouldDo text-primary text-[40px] mb-4 drop-shadow-lg">
@@ -135,9 +135,9 @@ const HomeSlider = ({ className }: SectionProps) => {
                 </div>
                 <div className="hidden sm:flex w-1/4 animate-zoom-in">
                   <Image
-                    src="/assets/slider_pizza_2.png"
-                    alt="Pizza"
+                    src="/assets/slider_pizza_2_optimized.png"
                     className="rounded-2xl shadow-2xl"
+                    alt="Pizza"
                   />
                 </div>
               </div>

@@ -16,7 +16,7 @@ const SlideBackground = ({ bgImage, children }: SlideBackgroundProps) => {
         style={{ objectFit: "cover" }}
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-[#fac564]/20 backdrop-blur-sm rounded-2xl z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-[#fac564]/20 backdrop-blur-sm z-10" />
       <div className="relative z-20 flex items-center justify-center h-full w-full">
         {children}
       </div>
