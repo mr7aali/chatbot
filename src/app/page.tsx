@@ -1,9 +1,24 @@
-import ContactSecton from "@/components/layout/ContactSection";
 import HomeSlider from "@/components/layout/HomeSlider";
 import BusinessInfo from "@/components/layout/BusinessInfo";
-import AboutSection from "@/components/layout/AboutSection";
-import ServicesSection from "@/components/layout/ServicesSection";
-import HomeMenu from "@/components/layout/HomeMenu";
+
+const AboutSection = dynamic(() => import("@/components/layout/AboutSection"), {
+  ssr: true,
+});
+
+const ServicesSection = dynamic(
+  () => import("@/components/layout/ServicesSection")
+);
+const ContactSecton = dynamic(
+  () => import("@/components/layout/ContactSection"),
+  {
+    ssr: false,
+  }
+);
+
+const HomeMenu = dynamic(() => import("@/components/layout/HomeMenu"), {
+  ssr: true,
+});
+import dynamic from "next/dynamic";
 
 export default function Home() {
   return (

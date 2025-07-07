@@ -22,7 +22,7 @@ const TextCard = ({
     <div
       className={`${
         margin === "top" ? "mt-2" : margin === "bottom" ? "mb-2" : ""
-      } flex items-center backdrop-blur-sm bg-white/10  ml-2 mr-2  shadow-lg hover:shadow-xl transition-shadow duration-300 `}
+      } flex items-center  hover:m-0 backdrop-blur-sm bg-white/10  ml-2 mr-2  shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out`}
     >
       <div className="flex flex-col gap-4 p-6 text-end">
         <h3 className="text-xl font-semibold text-primary">{menuItem.name}</h3>

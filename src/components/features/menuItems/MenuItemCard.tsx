@@ -42,13 +42,15 @@ const MenuItemCard = ({ menuItem }: MenuItemCardProps) => {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-between gap-4 bg-white/5 backdrop-blur-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-6 w-full max-w-sm mx-auto group hover:scale-[1.03] border border-primary/20">
+      <div className="relative flex flex-col items-center justify-between gap-4 bg-white/5 backdrop-blur-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 px-4 pt-3 pb-4 w-full max-w-sm mx-auto group hover:scale-[1.03] border border-primary/20 ">
         <div className="relative mb-4 w-full h-48 flex items-center justify-center overflow-hidden rounded-xl shadow-md bg-dark/90">
           <Image
             src={menuItem.image}
             alt={menuItem.name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            // fill
+            width={400}
+            height={400}
+            className="object-cover w-[400px] h-[400px] transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, 400px"
             priority={false}
           />
