@@ -65,7 +65,7 @@ const Header = () => {
       />
 
       <Navbar
-        className="font-semibold bg-dark py-3 shadow-2xl rounded-b-2xl border-b border-[#fac564]/20 backdrop-blur-md transition-all duration-300"
+        className="font-semibold bg-dark py-3 shadow-2xl  border-b border-[#fac564]/20 backdrop-blur-md transition-all duration-300"
         classNames={{ item: "data-[active=true]:text-primary" }}
       >
         <NavbarBrand className="hidden md:flex">
